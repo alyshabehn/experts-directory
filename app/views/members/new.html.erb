@@ -1,0 +1,17 @@
+<h1>Add Member</h1>
+
+<%= form_with scope: :member, url: members_path, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :website %><br>
+    <%= form.text_field :website %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

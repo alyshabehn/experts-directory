@@ -1,0 +1,22 @@
+<h1>Expert Directory</h1>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Website</th>
+    <th>Friend Count</th>
+    <th></th>
+  </tr>
+
+  <% @members.each do |member| %>
+    <tr>
+      <td><%= member.name %></td>
+      <td><%= member.website %></td>
+      <td><%= member.friends.size %></td>
+      <td><%= link_to 'Show', member_path(member) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Add a member', new_member_path %>

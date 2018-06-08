@@ -1,0 +1,43 @@
+<p>
+  <strong>Name:</strong>
+  <%= @member.name %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @member.website %>
+</p>
+
+<p>
+  <strong>Areas of Expertise: </strong>
+  <% @member.headings.each do |heading| %>
+    <p>
+      <%= heading.heading %>
+    </p>
+  <% end %>
+
+</p>
+
+<p>
+  <strong>Friends: </strong>
+  <% @member.friends.each do |friend| %>
+    <p>
+      <%= link_to friend.name, member_path(friend.id) %>
+    </p>
+  <% end %>
+</p>
+
+<p>
+<strong>Search Members: </strong>
+  <%= form_tag(member_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Members" %>
+    <%= submit_tag "Search", :name => nil %>
+  <% end %>
+</p>
+
+<p>
+<strong>Introduction Paths: </strong>
+<% @path_dict.each do |key, value| %>
+    <p><%= value %> ("<%= key %>")</p>
+<% end %>
+</p>
