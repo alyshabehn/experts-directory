@@ -16,7 +16,7 @@ class MembersController < ApplicationController
           params[:search],
           @member.friends.map{ |f| f.id})
       @path_dict = headings
-                       .map {|h| [h.heading, find_introduction_path(@member, h.member)]}
+                       .map {|h| [h, find_introduction_path(@member, h.member)]}
                        .to_h
     else
       @path_dict = {}

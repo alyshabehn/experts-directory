@@ -38,6 +38,9 @@
 <p>
 <strong>Introduction Paths: </strong>
 <% @path_dict.each do |key, value| %>
-    <p><%= value %> ("<%= key %>")</p>
+    <p><%= value %> ("<%= key.heading %>")
+      <%= link_to "Add " + key.member.name + " as friend", member_friend_path(@member.id, key.member.id), method: :put %>
+    </p>
+
 <% end %>
 </p>
